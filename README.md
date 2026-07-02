@@ -1,3 +1,8 @@
+# Memory Card
+
+The main goal of this project is to implement the concepts learned so far by using hooks to manage and utilize state while fetching and using data from an external API.
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

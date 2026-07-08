@@ -1,0 +1,12 @@
+button { 
+    all: unset;
+}
+
+.card {
+    padding: 1rem;
+    background-color: var(--accent-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}

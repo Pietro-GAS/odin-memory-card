@@ -5,11 +5,16 @@ import '../css/Board.css';
 export function Board() {
     const [currentScore, setCurrentScore] = useState(0);
     const [maxScore, setMaxScore] = useState(0);
+    const [selectedCards, setSelectedCards] = useState([]);
 
-    function handleClick() {
-        const newScore = currentScore + 1;
-        setCurrentScore(newScore);
-        handleMax(newScore);
+    function handleClick(event) {
+        if (validateClick(event)) {
+            const newScore = currentScore + 1;
+            setCurrentScore(newScore);
+            handleMax(newScore);
+        } else {
+            resetScore();
+        }
     }
 
     function resetScore() {
@@ -24,18 +29,35 @@ export function Board() {
         }
     }
 
+    function validateClick(event) {
+        const id = event.target.id;
+        console.log('Selected: card #' + id);
+        if (selectedCards.includes(id)) {
+            console.log('Repeated card! Restarting...')
+            setSelectedCards([]);
+            return false;
+        } else {
+            const newSelectedCards = selectedCards;
+            newSelectedCards.push(id);
+            console.log(newSelectedCards);
+            setSelectedCards(newSelectedCards);
+            return true;
+        }
+    }
+
     function CardContainer() {
-        const titles = [
-            'Card 1', 'Card 2', 'Card 3', 'Card 4', 
-            'Card 5', 'Card 6', 'Card 7', 'Card 8', 
-            'Card 9', 'Card 10', 'Card 11', 'Card 12'
-        ];
+        const ids = [];
+        for (let i=0; i<12; i++) {
+            const rand = randInt(ids, 100);
+            ids.push(rand);
+            ids.sort((a, b) => a - b);
+        }
 
         return (
             <div className="card-container">
-                {titles.map((title) => {
-                    const id = crypto.randomUUID();
-                    return <Card key={id} title={title} onClick={handleClick} />
+                {ids.map((id) => {
+                    //const id = crypto.randomUUID();
+                    return <Card key={id} id={id} onClick={handleClick} />
                 })}
             </div>
         )
@@ -60,5 +82,12 @@ export function Board() {
 }
 
 
-
+function randInt(values, max) {
+    const rand = Math.ceil(Math.random()*max);
+    if (values.includes(rand)) {
+        return randInt(values, max);
+    } else {
+        return rand;
+    }
+}
 

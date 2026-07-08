@@ -83,6 +83,7 @@ export function Board() {
 
 function randInt(values, max) {
     const rand = Math.ceil(Math.random()*max);
+    // If the returned number is already present, randomize again
     if (values.includes(rand)) {
         return randInt(values, max);
     } else {

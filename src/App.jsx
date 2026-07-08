@@ -7,7 +7,6 @@ import { Board } from './components/Board.jsx'
 import './css/App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>

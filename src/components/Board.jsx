@@ -68,7 +68,6 @@ export function Board() {
             <div className="score">
                 <p>CURRENT SCORE: {currentScore}</p>
                 <p>BEST SCORE: {maxScore}</p>
-                <button onClick={resetScore}>Reset</button>
             </div>
         )
     }

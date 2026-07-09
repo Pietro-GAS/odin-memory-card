@@ -1,5 +1,6 @@
 import { Card } from './Card.jsx';
 import { useState } from 'react';
+import { getData, randInt } from '../scripts/get-data.js';
 import '../css/Board.css';
 
 export function Board() {
@@ -79,15 +80,3 @@ export function Board() {
         </div>
     )
 }
-
-
-function randInt(values, max) {
-    const rand = Math.ceil(Math.random()*max);
-    // If the returned number is already present, randomize again
-    if (values.includes(rand)) {
-        return randInt(values, max);
-    } else {
-        return rand;
-    }
-}
-

@@ -8,6 +8,7 @@
 
 .score {
     padding: 0.5rem;
+    color: var(--text-h);
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

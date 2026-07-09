@@ -66,8 +66,8 @@ export function Board() {
     function ScoreCounter() {
         return (
             <div className="score">
-                <p>CURRENT SCORE: {currentScore}</p>
-                <p>BEST SCORE: {maxScore}</p>
+                <p><span>CURRENT SCORE: </span><span>{currentScore}</span></p>
+                <p><span>BEST SCORE: </span><span>{maxScore}</span></p>
             </div>
         )
     }

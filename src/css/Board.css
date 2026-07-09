@@ -1,11 +1,33 @@
+.board {
+    height: 100%;
+    padding-bottom: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
 .score {
-    padding: 1rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
+.score p {
+    background-color: var(--accent-bg);
+    border: 1px solid var(--accent-border);
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    width: 18rem;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+
 .card-container {
+    padding: 1rem;
+    flex-grow: 1;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     /*grid-template-rows: repeat(auto, 1fr);*/
